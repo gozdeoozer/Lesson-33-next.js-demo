@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { quotes as initialQuotes } from '@/quotes';
-import { SubTitle } from '@/components/Subtitle';
+import { Subtitle } from '@/components/Subtitle';
 import { Body2 } from '@/components/Body2';
 import { Button } from '@/components/Button';
 

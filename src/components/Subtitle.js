@@ -1,4 +1,4 @@
 
-export function SubTitle({ title }) {
+export function SubTitle({title}) {
   return <p className="text-lg">{title}</p>;
 } 
