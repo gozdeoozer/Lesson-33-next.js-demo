@@ -6,6 +6,8 @@ import { Subtitle } from '@/components/Subtitle';
 import { Body2 } from '@/components/Body2';
 import { Button } from '@/components/Button';
 
+
+
 function getRandomIndex(currentIndex, arrayLength) {
   const random = Math.floor(Math.random() * arrayLength);
 
@@ -26,6 +28,22 @@ export default function Home() {
     setCurrentIndex(nextIndex);
   }
 
+  function handleLikeClick() {
+    console.log("Like button clicked");
+    setQuotes((prevQuotes) => {
+      const newQuotes = [...prevQuotes];
+
+      const currentQuote = newQuotes[currentIndex];
+      newQuotes[currentIndex] = {
+        ...currentQuote,
+        likeCount: (currentQuote.likeCount || 0) + 1,
+      };
+
+      return newQuotes;
+    });
+  }
+
+
   return (
     <main className='min-h-dvh flex items-center'>
       <div className='w-md mx-auto bg-slate-700 p-10 rounded-md flex flex-col'>
@@ -33,7 +51,9 @@ export default function Home() {
         <Body2>{quotes[currentIndex].author}</Body2>
         <Button
           onClick={handleNextClick}>Next Quote</Button>
+        <Button onClick={handleLikeClick}>Like ({quotes[currentIndex].likeCount})</Button>
       </div>
     </main>
   );
 }
+
