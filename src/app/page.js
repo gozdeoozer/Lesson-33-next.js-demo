@@ -5,6 +5,7 @@ import { Body2 } from '@/components/Body2';
 import { Button } from '@/components/Button';
 import { useQuotesContext, useQuotesDispatchContext } from '@/app/QuotesContext';
 
+
 export default function Home() {
   const { quotes, currentIndex } = useQuotesContext();
   const { handleNextQuoteClick } = useQuotesDispatchContext();

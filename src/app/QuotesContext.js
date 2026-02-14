@@ -7,7 +7,7 @@ function getRandomIndex(currentIndex, arrayLength) {
 
   const result = random();
   if (result === currentIndex) {
-    getRandomIndex(currentIndex, arrayLength);
+    return getRandomIndex(currentIndex, arrayLength);
   } else {
     return result;
   }
@@ -41,7 +41,23 @@ export const QuotesProvider = ({ children }) => {
   }
 
   function handleLike(quoteToLike) {
+    setQuotes((prevQuotes) => {
+      const updatedQuotes = prevQuotes.map((currentQuote) => {
+        if (
+          currentQuote.quote === quoteToLike.quote &&
+          currentQuote.author === quoteToLike.author
+        ) {
+          return {
+            ...currentQuote,
+            likedBy: 1,
+          };
+        } else {
+          return currentQuote;
+        }
+      });
 
+      return updatedQuotes;
+    });
   }
 
   function handleNextQuoteClick() {
