@@ -18,7 +18,7 @@ export default function Home() {
         <Subtitle title={quotes[currentIndex].quote} />
         <Body2>{quotes[currentIndex].author}</Body2>
         <Button onClick={handleNextQuoteClick}>Next Quote</Button>
-        <Body2>{user.name}</Body2>
+
       </div>
     </main>
   );
