@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <main className='min-h-dvh flex items-center'>
-      <div className='w-md mx-auto bg-slate-700 p-10 rounded-md flex flex-col'>
+      <div className='w-md mx-auto bg-slate-400 slate-900 dark:bg-slate-700 dark:slate-100 p-10 rounded-md flex flex-col'>
         <Subtitle title={quotes[currentIndex].quote} />
         <Body2>{quotes[currentIndex].author}</Body2>
         <Button onClick={handleNextQuoteClick}>Next Quote</Button>
