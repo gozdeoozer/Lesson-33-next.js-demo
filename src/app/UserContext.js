@@ -9,8 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { useQuotesContext, useQuotesDispatchContext } from "@app/QuotesContext";
-import { useUserContext } from "./QuotesContext";
+import { useQuotesContext, useQuotesDispatchContext } from "./QuotesContext";
+import { useUserContext } from "./UserContext";
 
 export default function Home() {
   const { quotes, currentIndex } = useQuotesContext();
