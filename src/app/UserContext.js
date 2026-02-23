@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 
 import { useQuotesContext, useQuotesDispatchContext } from "@app/QuotesContext";
-import { useUserContext } from "@app/UserContext";
+import { useUserContext } from "./QuotesContext";
 
 export default function Home() {
   const { quotes, currentIndex } = useQuotesContext();
