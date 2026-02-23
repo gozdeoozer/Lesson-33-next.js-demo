@@ -1,8 +1,6 @@
 'use client';
-
-import { Subtitle } from '@/components/Subtitle';
-import { Body2 } from '@/components/Body2';
-import { Button } from '@/components/Button';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { useQuotesContext, useQuotesDispatchContext } from '@/app/QuotesContext';
 import { useUserContext } from '@/app/UserContext';
 

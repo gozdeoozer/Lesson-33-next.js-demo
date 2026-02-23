@@ -1,20 +1,39 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-const UserContext = createContext(null);
+import { useQuotesContext, useQuotesDispatchContext } from "@app/QuotesContext";
+import { useUserContext } from "@app/UserContext";
 
-export const UserProvider = ({ children }) => {
-  const user = {
-    name: "Gözde",
-    email: "gozde@email.com",
-  };
+export default function Home() {
+  const { quotes, currentIndex } = useQuotesContext();
+  const { handleNextQuoteClick } = useQuotesDispatchContext();
+  const user = useUserContext();
+
+  const currentQuote = quotes[currentIndex];
 
   return (
-    <UserContext.Provider value={user}>
-      {children}
-    </UserContext.Provider>
-  );
-};
+    <main className="min-h-dvh flex items-center justify-center p-6">
+      <Card className="w-full max-w-xl">
+        <CardHeader>
+          <CardTitle>{currentQuote.quote}</CardTitle>
+          <CardDescription>{currentQuote.author}</CardDescription>
+        </CardHeader>
 
-export const useUserContext = () => useContext(UserContext);
+        <CardContent className="flex flex-col gap-4">
+          <Button onClick={handleNextQuoteClick}>Next Quote</Button>
+
+          {/* bu satır sadece test: user context çalışıyor mu */}
+          <p className="text-sm opacity-60">Logged user: {user?.name}</p>
+        </CardContent>
+      </Card>
+    </main>
+  );
+}
