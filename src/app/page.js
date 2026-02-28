@@ -30,7 +30,25 @@ export default function Home() {
         >
           Next Quote
         </button>
+        <div className="mt-6 flex justify-center gap-6 text-sm">
+        <div className="mt-6 flex justify-center gap-6 text-sm">
+ <div className="mt-6 flex justify-center gap-6 text-sm">
+ <a
+  href="/login"
+  className="text-neutral-700 dark:text-neutral-600 hover:text-black dark:hover:text-white transition"
+>
+  Login
+</a>
 
+<a
+  href="/signup"
+  className="text-neutral-700 dark:text-neutral-600 hover:text-black dark:hover:text-white transition"
+>
+  Sign Up
+</a>
+</div>
+</div>
+        </div>
       </div>
     </main>
   );
