@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Random Quotes",
+  description: "A simple app to display random quotes",
+};
+
 import "./globals.css";
 import { UserProvider } from "./UserContext";
 import { QuotesProvider } from "./QuotesContext";
