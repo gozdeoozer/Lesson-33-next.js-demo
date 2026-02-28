@@ -1,30 +1,16 @@
-import { Geist, Geist_Mono } from 'next/font/google';
-import { QuotesProvider } from '@/app/QuotesContext';
-import { UserProvider } from '@/app/UserContext';
-import './globals.css';
-
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
 export const metadata = {
-  title: 'Random Quotes App',
-  description: 'A simple app that displays random quotes.',
+  title: "Random Quotes",
+  description: "A simple app to display random quotes",
 };
+
+import "./globals.css";
+import { UserProvider } from "./UserContext";
+import { QuotesProvider } from "./QuotesContext";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en">
+      <body>
         <UserProvider>
           <QuotesProvider>{children}</QuotesProvider>
         </UserProvider>
@@ -32,3 +18,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
