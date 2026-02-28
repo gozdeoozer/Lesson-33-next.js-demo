@@ -17,23 +17,28 @@ export default function Home() {
   const { handleNextQuoteClick } = useQuotesDispatchContext();
   const user = useUserContext();
 
-  const currentQuote = quotes[currentIndex];
+  const currentQuote = quotes?.[currentIndex];
 
   return (
-    <main className="min-h-dvh flex items-center justify-center p-6 bg-white text-black dark:bg-black dark:text-white">
-      <Card className="w-full max-w-xl">
-        <CardHeader>
-          <CardTitle>{currentQuote.quote}</CardTitle>
-          <CardDescription>{currentQuote.author}</CardDescription>
-        </CardHeader>
+    <main className="min-h-screen flex items-center justify-center bg-gray-100">
+  <div className="w-full max-w-xl bg-white p-8 rounded-xl shadow-md text-center">
+    
+    <h1 className="text-2xl font-semibold mb-4">
+      {currentQuote.quote}
+    </h1>
 
-        <CardContent className="flex flex-col gap-4">
-          <Button onClick={handleNextQuoteClick}>Next Quote</Button>
+    <p className="text-gray-500 mb-6">
+      — {currentQuote.author}
+    </p>
 
-          {/* şimdilik dursun, sonra kaldırırız */}
-          <p className="text-sm opacity-60">Logged user: {user?.name}</p>
-        </CardContent>
-      </Card>
-    </main>
+    <button
+      onClick={handleNextQuoteClick}
+      className="px-6 py-2 bg-black text-white rounded-md hover:opacity-80 transition"
+    >
+      Next Quote
+    </button>
+
+  </div>
+</main>
   );
 }

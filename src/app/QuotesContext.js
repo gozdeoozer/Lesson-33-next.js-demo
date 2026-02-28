@@ -13,8 +13,8 @@ function getRandomIndex(currentIndex, arrayLength) {
   return result;
 }
 
-const QuotesContext = createContext([]);
-const QuotesDispatchContext = createContext(undefined);
+const QuotesContext = createContext(null);
+const QuotesDispatchContext = createContext(null);
 
 export const QuotesProvider = ({ children }) => {
   const [quotes, setQuotes] = useState(initialQuotes);
@@ -64,5 +64,18 @@ export const QuotesProvider = ({ children }) => {
   );
 };
 
-export const useQuotesContext = () => useContext(QuotesContext);
-export const useQuotesDispatchContext = () => useContext(QuotesDispatchContext);
+// ✅ “Provider yoksa patlasın” diye güvenli hook
+export const useQuotesContext = () => {
+  const ctx = useContext(QuotesContext);
+  if (!ctx) throw new Error("useQuotesContext must be used inside QuotesProvider");
+  return ctx;
+};
+
+export const useQuotesDispatchContext = () => {
+  const ctx = useContext(QuotesDispatchContext);
+  if (!ctx)
+    throw new Error(
+      "useQuotesDispatchContext must be used inside QuotesProvider"
+    );
+  return ctx;
+};
